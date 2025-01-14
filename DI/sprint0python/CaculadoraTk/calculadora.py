@@ -24,6 +24,34 @@ alto_boton =3
 
 #Creo los botones: el texto que se muestra en el boton, anchura y altura  y lo posiciono con place
 Boton0 = Button(ventana, text="0", width=ancho_boton, height= alto_boton).place(x=17,y=180)
+Boton1 = Button(ventana, text="1", width=ancho_boton, height= alto_boton).place(x=107,y=180)
+Boton2 = Button(ventana, text="2", width=ancho_boton, height= alto_boton).place(x=197,y=180)
+Boton3 = Button(ventana, text="3", width=ancho_boton, height= alto_boton).place(x=287,y=180)
+Boton4 = Button(ventana, text="4", width=ancho_boton, height= alto_boton).place(x=17,y=240)
+Boton5 = Button(ventana, text="5", width=ancho_boton, height= alto_boton).place(x=107,y=240)
+Boton6 = Button(ventana, text="6", width=ancho_boton, height= alto_boton).place(x=197,y=240)
+Boton7 = Button(ventana, text="7", width=ancho_boton, height= alto_boton).place(x=287,y=240)
+Boton8 = Button(ventana, text="8", width=ancho_boton, height= alto_boton).place(x=17,y=300)
+Boton9 = Button(ventana, text="9", width=ancho_boton, height= alto_boton).place(x=107,y=300)
+Boton9 = Button(ventana, text="π", width=ancho_boton, height= alto_boton).place(x=197,y=300)
+Boton9 = Button(ventana, text=",", width=ancho_boton, height= alto_boton).place(x=287,y=300)
+Boton9 = Button(ventana, text="+", width=ancho_boton, height= alto_boton).place(x=17,y=360)
+Boton9 = Button(ventana, text="-", width=ancho_boton, height= alto_boton).place(x=107,y=360)
+Boton9 = Button(ventana, text="*", width=ancho_boton, height= alto_boton).place(x=197,y=360)
+Boton9 = Button(ventana, text="/", width=ancho_boton, height= alto_boton).place(x=287,y=360)
+Boton9 = Button(ventana, text="√", width=ancho_boton, height= alto_boton).place(x=17,y=420)
+Boton9 = Button(ventana, text="(", width=ancho_boton, height= alto_boton).place(x=107,y=420)
+Boton9 = Button(ventana, text=")", width=ancho_boton, height= alto_boton).place(x=197,y=420)
+Boton9 = Button(ventana, text="%", width=ancho_boton, height= alto_boton).place(x=287,y=420)
+Boton9 = Button(ventana, text="ln", width=ancho_boton, height= alto_boton).place(x=17,y=480)
+Boton9 = Button(ventana, text="C", width=ancho_boton, height= alto_boton).place(x=107,y=480)
+Boton9 = Button(ventana, text="EXP", width=ancho_boton, height= alto_boton).place(x=197,y=480)
+Boton9 = Button(ventana, text="=", width=ancho_boton, height= alto_boton).place(x=287,y=480)
+
+
+
+
+
 
 
 """
