@@ -13,13 +13,14 @@ class MainWindow():
 
 
         
-    # Inicializo una lista vacia de cell
+    # Inicializo una  la ventana principal donde apareceran la  imagenes
     def __init__(self, root, json_data):
+
         root.title("Mi Mariposuario")
-        root.geometry("400x300")
+        root.geometry("250x300")
         self.cells = [] 
 
-        #recorro cada cell
+        #recorro el json  y obtengo la información para cada cell
         for i in json_data:
             name = i.get("name")
             description = i.get("description")
@@ -36,14 +37,15 @@ class MainWindow():
         menubar.add_cascade(label="Ayuda", menu=ayuda_menu)
 
 
-        #Ventana principal
-        self.canvas = Canvas(root, width=200, height=300, anchor="center")
+        #Creo una ventana donde apareceran el scroll  que muestra la información contenida en el json
+        self.canvas = Canvas(root, width=200, height=300)
 
 
-        #Creo el scroll con canvas y tkinter para recorrer las imagenes con una barra
+        #Posicion el scroll
    
         self.scrollbar = Scrollbar(root, orient = "vertical", command = self.canvas.yview)
         self.scrollable_frame = Frame(self.canvas)
+        
 
         self.scrollable_frame.bind(
             "<Configure>",
@@ -54,17 +56,19 @@ class MainWindow():
         self.canvas.configure(yscrollcommand = self.scrollbar.set)
 
         for i, cell in enumerate(self.cells):
-            self.add_item(cell,i)
+            self.add_item(cell)
 
         self.canvas.grid(row = 0, column = 0, sticky = "nsew")
         self.scrollbar.grid(row = 0, column = 1, sticky = "ns")
-
+        
+        root.grid_rowconfigure(0, weight=1)
+        root.grid_columnconfigure(0, weight=1)
 
         
-    def add_item(self, cell, i):
+    def add_item(self, cell):
 
         frame = Frame(self.scrollable_frame)
-        frame.pack(pady = 10, anchor="center")
+        frame.pack(pady = 10, anchor="center", expand=True, fill="both")
         
         label = Label(frame, image = cell.image_tk, text = cell.title, compound = tk.BOTTOM)
         label.pack(anchor="center")
