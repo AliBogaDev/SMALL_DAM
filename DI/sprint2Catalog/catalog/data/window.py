@@ -1,4 +1,3 @@
-from logging import root
 from tkinter import Canvas, Frame, Label, Scrollbar, ttk
 import tkinter as tk
 from tkinter import messagebox
@@ -14,42 +13,35 @@ class MainWindow():
 
 
         
-
+    # Inicializo una lista vacia de cell
     def __init__(self, root, json_data):
         root.title("Mi Mariposuario")
-        self.cells = [] # Inicializo una lista vacia de cell
+        root.geometry("400x300")
+        self.cells = [] 
 
-        for i in json_data: #recorro cada cell
+        #recorro cada cell
+        for i in json_data:
             name = i.get("name")
             description = i.get("description")
             url = i.get("image_url")
             
             self.cells.append(Cell(name, description, url))
 
-    
-        for i, cell in enumerate(self.cells): #Recorro cada cell en la lista
-            label = ttk.Label(root, image=cell.image_tk, text=cell.title, compound=tk.BOTTOM)
-            label.grid(row=i, column=0)
-            label.bind("<Button-1>", lambda event, cell=cell: self.on_button_clicked(cell))
-
-        
+   
+         
+        #Información del desarrollador
         menubar = tk.Menu(root)
         ayuda_menu = tk.Menu(menubar, tearoff=False)
         ayuda_menu.add_command(label="Acerca de", command=self.acerca_de)
         menubar.add_cascade(label="Ayuda", menu=ayuda_menu)
 
-        root.config(menu=menubar)
 
-        width = int(140)
-        height = int(200)
-    
-        root.geometry(str(width)+"x"+str(height))
-    
-        x=(root.winfo_screenwidth() - width)/2
-        y=(root.winfo_screenheight() -height)/2
-        root.geometry(f"+{int(x)}+{int(y)}")
+        #Ventana principal
+        self.canvas = Canvas(root, width=200, height=300)
+
+
         #Creo el scroll con canvas y tkinter para recorrer las imagenes con una barra
-        self.canvas = Canvas(root)
+   
         self.scrollbar = Scrollbar(root, orient = "vertical", command = self.canvas.yview)
         self.scrollable_frame = Frame(self.canvas)
 
@@ -67,17 +59,17 @@ class MainWindow():
         self.canvas.grid(row = 0, column = 0, sticky = "nsew")
         self.scrollbar.grid(row = 0, column = 1, sticky = "ns")
 
-        self.root.grid_rowconfigure(0,weight=1)
-        self.root.grid_columnconfigure(0, weight=1)
+
         
     def add_item(self, cell, i):
 
         frame = Frame(self.scrollable_frame)
-        frame.pack(pady = 10)
+        frame.pack(pady = 10, anchor="center")
         
         label = Label(frame, image = cell.image_tk, text = cell.title, compound = tk.BOTTOM)
-        label.grid(row = i, column = 0)
+        label.pack(anchor="center")
         label.bind("<Button-1>", lambda event, cell = cell: DetailWindow(cell) )
+
         #Este es mi mensage de ayuda
     def acerca_de(self):
         messagebox.showinfo("Acerca del desarrollador", "Este programa fue desarrollado por Alicia.")

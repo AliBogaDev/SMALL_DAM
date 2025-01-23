@@ -59,7 +59,7 @@ class LoadingWindow():
         self.root.after(50,self.update_progress_circle) # Llama a la función update_progress_circle cada 50 milisegundos
 
     def fetch_json_data(self):
-        response = requests.get("https://raw.githubusercontent.com/AliBogarin/DWES/main/recursos/catalog.json")
+        response = requests.get("https://raw.githubusercontent.com/AliBogaDev/SMALL_DAM/refs/heads/master/DI/sprint2Catalog/catalog/data/catalog.json")
         if response.status_code == 200:
             self.json_data = response.json() # Llama a la función para lanzar la ventana principal
             self.finished = True

@@ -20,13 +20,5 @@ class DetailWindow:
 
         label1.pack(side="top")
         label2.pack()
-        label3.pack()
+        label3.pack() #Muestra la información al clickear en la imagen
 
-        width = int(160)
-        heigth = int(300)
-        # Ajustando la ventana
-        root.geometry(str(width)+"x"+str(heigth))
-
-        x=(root.winfo_screenwidth() - width)/2
-        y=(root.winfo_screenheight() - heigth)/2
-        root.geometry(f"+{int(x)}+{int(y)}")
