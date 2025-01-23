@@ -37,7 +37,7 @@ class MainWindow():
 
 
         #Ventana principal
-        self.canvas = Canvas(root, width=200, height=300)
+        self.canvas = Canvas(root, width=200, height=300, anchor="center")
 
 
         #Creo el scroll con canvas y tkinter para recorrer las imagenes con una barra
